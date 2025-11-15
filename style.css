@@ -1,0 +1,122 @@
+/* Importar fuente de Google Fonts para un estilo más moderno */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif; /* Usamos la fuente importada */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #0d1117; /* Fondo oscuro por defecto si la animación falla */
+    color: #f0f0f0;
+    overflow: hidden; /* Evita barras de desplazamiento */
+    position: relative; /* Para posicionar el fondo animado */
+}
+
+/* --- Fondo Animado (Degradado con brillo sutil) --- */
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #0d1117, #1a233a, #0d1117); /* Degradado sutil */
+    background-size: 400% 400%; /* Para que el degradado sea grande y pueda animarse */
+    animation: gradientAnimation 15s ease infinite; /* Animación lenta del degradado */
+    z-index: -1; /* Envía el fondo detrás del contenido */
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* --- Contenedor Principal (Centra botón/video) --- */
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative; /* Necesario para que el contenido esté sobre el fondo animado */
+    z-index: 1; /* Asegura que el contenido esté encima del fondo */
+}
+
+
+/* --- Estilo del Botón (con efecto de luz/resplandor) --- */
+button {
+    padding: 20px 45px;          /* Más grande y con mejor padding */
+    font-size: 2em;              /* Texto más grande */
+    font-weight: 700;            /* Bold de la fuente Montserrat */
+    cursor: pointer;
+    background-color: #ffffff;   /* Fondo blanco */
+    color: #1a1a1a;              /* Texto negro */
+    border: none;
+    border-radius: 15px;         /* Bordes más redondeados */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Sombra elegante */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición más suave y con "rebote" */
+    letter-spacing: 2px;         /* Más espacio entre letras */
+    text-transform: uppercase;
+    position: relative;          /* Para el efecto de "glow" */
+    overflow: hidden;            /* Asegura que el glow no se desborde */
+    z-index: 2; /* Asegura que el botón esté encima del fondo y el video inicial */
+}
+
+/* Efecto de "glow" o luz alrededor del botón */
+button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 70%);
+    opacity: 0;
+    transform: rotate(45deg) scale(0);
+    transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: -1; /* Por debajo del texto del botón */
+}
+
+button:hover {
+    background-color: #e0e0e0; /* Blanco un poco más suave al pasar el mouse */
+    transform: translateY(-5px) scale(1.02); /* Se eleva y agranda ligeramente */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); /* Sombra más pronunciada */
+}
+
+button:hover::before {
+    opacity: 1; /* Hace visible el glow */
+    transform: rotate(45deg) scale(1); /* Expande y rota el glow */
+}
+
+
+/* --- Estilo del Video (con aparición animada) --- */
+video {
+    max-width: 95vw; /* Más grande, casi al 100% del ancho */
+    max-height: 95vh; /* Más grande, casi al 100% de la altura */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px; /* Bordes redondeados más pronunciados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); /* Sombra para el video */
+    
+    /* Transiciones para suavizar la aparición del video */
+    opacity: 0;
+    transform: scale(0.7); /* Empieza más pequeño y se expande */
+    transition: opacity 1s ease-out, transform 1s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición más lenta y elegante */
+}
+
+/* Cuando el video NO tiene la clase 'hidden', lo hacemos visible */
+video:not(.hidden) {
+    opacity: 1; /* Completamente visible */
+    transform: scale(1); /* Vuelve a su tamaño normal */
+}
+
+/* Clase para ocultar el video inicialmente (y asegurar que no ocupe espacio) */
+.hidden {
+    display: none; /* ¡Esto es lo que asegura que no ocupe espacio! */
+}

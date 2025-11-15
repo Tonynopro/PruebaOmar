@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fans de Omar - Contenido Exclusivo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-animation"></div> <div class="container">
+        <button id="miBoton">BLACK NIGGA ANUS</button>
+
+        <video id="miVideo" src="OmarEdit.mp4" loop playsinline class="hidden"></video> 
+    </div>
+
+    <script>
+        const miBoton = document.getElementById('miBoton');
+        const miVideo = document.getElementById('miVideo');
+
+        miBoton.addEventListener('click', () => {
+            miBoton.style.display = 'none'; // Oculta el botón
+
+            miVideo.classList.remove('hidden'); // Muestra el video
+            miVideo.play(); // Reproduce el video
+        });
+
+        // Asegurar la reproducción si el video ya está cargado y no se ha reproducido
+        miVideo.addEventListener('loadedmetadata', () => {
+            if (!miVideo.paused && miVideo.classList.contains('hidden') === false) {
+                miVideo.play();
+            }
+        });
+
+    </script>
+</body>
+</html>
