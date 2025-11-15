@@ -1,38 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fans de Omar - Contenido Exclusivo</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="background-animation"></div>
+    <div class="container">
+      <button id="miBoton">BLACK NIGGA ANUS</button>
 
-    <div class="background-animation"></div> <div class="container">
-        <button id="miBoton">BLACK NIGGA ANUS</button>
-
-        <video id="miVideo" src="OmarEdit.mp4" loop playsinline class="hidden"></video> 
+      <video
+        id="miVideo"
+        src="OmarEdit.mp4"
+        loop
+        playsinline
+        class="hidden"
+      ></video>
     </div>
 
     <script>
-        const miBoton = document.getElementById('miBoton');
-        const miVideo = document.getElementById('miVideo');
+      const miBoton = document.getElementById("miBoton");
+      const miVideo = document.getElementById("miVideo");
 
-        miBoton.addEventListener('click', () => {
-            miBoton.style.display = 'none'; // Oculta el botón
+      miBoton.addEventListener("click", () => {
+        miBoton.style.display = "none"; // Oculta el botón
 
-            miVideo.classList.remove('hidden'); // Muestra el video
-            miVideo.play(); // Reproduce el video
-        });
+        miVideo.classList.remove("hidden"); // Muestra el video
+        miVideo.play(); // Reproduce el video
+      });
 
-        // Asegurar la reproducción si el video ya está cargado y no se ha reproducido
-        miVideo.addEventListener('loadedmetadata', () => {
-            if (!miVideo.paused && miVideo.classList.contains('hidden') === false) {
-                miVideo.play();
-            }
-        });
-
+      // Asegurar la reproducción si el video ya está cargado y no se ha reproducido
+      miVideo.addEventListener("loadedmetadata", () => {
+        if (!miVideo.paused && miVideo.classList.contains("hidden") === false) {
+          miVideo.play();
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
