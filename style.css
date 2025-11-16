@@ -120,3 +120,20 @@ video:not(.hidden) {
 .hidden {
     display: none; /* ¡Esto es lo que asegura que no ocupe espacio! */
 }
+
+/* --- Estilo para el Pie de Página Discreto (SEO Contextual) --- */
+#seo-footer {
+    position: fixed; /* Lo fija en la ventana */
+    bottom: 0;       /* Lo pega a la parte inferior */
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.8em;        /* Letras muy pequeñas */
+    color: rgba(255, 255, 255, 0.4); /* Color gris muy tenue, baja opacidad */
+    background: rgba(0, 0, 0, 0.3);  /* Fondo semitransparente sutil */
+    z-index: 10;
+}
+
+#seo-footer p {
+    margin: 3px 0; /* Espaciado mínimo */
+}
